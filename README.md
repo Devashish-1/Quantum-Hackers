@@ -1,224 +1,6 @@
 # WireNet: Centralized Application-Context Aware Firewall (AI-Powered)
 A Smart Cybersecurity Solution by Team Quantum Hackers – Code Crafter2.0
 
-This repository presents an innovative solution for modern cybersecurity challenges—a Centralized Application-Context Aware Firewall that leverages AI/ML-based anomaly detection, context-aware network monitoring, and centralized policy enforcement via a unified dashboard. WireNet redefines how organizations defend against sophisticated cyber threats by offering application-specific insights and control.
-
----
-
-## 📌 Problem Statement
-
-Traditional firewalls often operate on a generic basis, lacking the nuanced understanding required for today’s complex network environments. Standard solutions typically fall short by:
-- Not offering application-specific control over network traffic.
-- Failing to detect early signs of anomalies in application behavior.
-- Requiring manual intervention for configuration and updates across distributed systems.
-
-These challenges leave systems vulnerable to advanced attacks where early detection and rapid response are paramount. Without a dedicated mechanism for context-aware monitoring, important details regarding application behavior and network patterns often remain hidden, allowing malicious activities to go unnoticed until they escalate.
-
----
-
-## 🎯 Our Proposed Solution
-
-WireNet introduces a paradigm shift with an AI-powered firewall agent installed directly on endpoint systems. This solution is designed to:
-- **Monitor Application-Specific Network Activities:** Each application’s network behavior is continuously tracked, ensuring precise and context-rich data collection.
-- **Detect Suspicious Behaviors in Real-Time:** Advanced machine learning algorithms, such as the Isolation Forest model, analyze patterns and detect deviations from normal activity.
-- **Enforce Security Policies Centrally:** Through a unified dashboard, administrators can implement and update policies that automatically propagate to all connected endpoints.
-- **Alert the Cybersecurity Team Instantly:** When anomalies are flagged, the system notifies administrators immediately via the dashboard and integrated alerting mechanisms.
-
-This approach allows organizations to benefit from:
-- 🔄 **Context-Aware Threat Detection:** The firewall distinguishes between normal and abnormal application behaviors, significantly enhancing detection accuracy.
-- 📶 **Real-Time Network Monitoring:** Continuous oversight of network traffic and application performance ensures that threats are identified as they occur.
-- 🔧 **Centralized Rule-Based Enforcement:** Policies are maintained in one place, reducing configuration errors and simplifying management.
-- 📊 **Unified Visualization:** A comprehensive dashboard aggregates logs, alerts, and performance metrics for an all-encompassing view of system activity.
-
----
-
-## 🌟 Key Features
-
-- **App-Wise Network Access Control:**  
-  Each application’s network usage is monitored individually, allowing for tailored access control and reducing the risk of over-permissioned flows.
-  
-- **AI/ML-Based Anomaly Detection:**  
-  Using sophisticated models like Isolation Forest, WireNet detects anomalies within network traffic, highlighting potential threats before they escalate.
-  
-- **Context-Awareness:**  
-  By understanding the specific actions of each application, the firewall’s detection mechanisms become smarter and less prone to false positives.
-  
-- **Centralized Dashboard:**  
-  Administrators can manage policies, view real-time alerts, and analyze logs from an interactive web interface, ensuring seamless control over distributed systems.
-  
-- **Detailed Logging:**  
-  Every network event and decision made by the firewall is logged. These logs can be exported or reviewed to gain insights into network behavior over time.
-  
-- **Cross-Platform Compatibility:**  
-  Initially optimized for Windows-based systems, WireNet’s design facilitates easy adaptation for Linux and other operating systems.
-  
-- **Enhanced Endpoint Security:**  
-  Fine-grained, automated rules empower both users and administrators, delivering robust protection against unauthorized access and other threats.
-
----
-
-## ⚙️ Technical Architecture
-
-WireNet’s architecture integrates modern programming paradigms and advanced security practices:
-
-### 🧱 Tech Stack
-
-| Component        | Technology Used              | Purpose                                          |
-|------------------|------------------------------|--------------------------------------------------|
-| **Frontend**     | HTML5, CSS3, JavaScript      | Interactive UI and dashboard visualization       |
-| **Backend (API)**| Python (Flask)               | REST API for data processing, policy enforcement, and ML integration |
-| **ML Models**    | Isolation Forest             | Detection of anomalous patterns from logs         |
-| **Data Storage** | SQLite / MongoDB             | Persistent storage for logs and policy data       |
-| **Agent Software**| Python (lightweight)        | Deployed on endpoints to monitor and relay network data |
-| **Communication**| Secure HTTP (REST)           | Encrypted transmission of data between agents and server |
-
-### 🛠️ Functional Methodology
-
-1. **Agent Installation:**  
-   Lightweight Python-based agents are installed on endpoint systems. These agents monitor application-specific network traffic and relay data to the central server.
-   
-2. **Real-Time Monitoring:**  
-   Each agent tracks:
-   - IP addresses, ports, and protocol types.
-   - Volumes of traffic associated with different applications.
-   - Timing and frequency of network accesses.
-   
-3. **Centralized Policy Enforcement:**  
-   Administrators define allow/deny rules on a central server. Agents fetch these rules at regular intervals, ensuring consistent application across all endpoints.
-   
-4. **Data Logging:**  
-   All network events are logged and securely transmitted to the Flask server using REST APIs. This log data is critical for both forensic analysis and ongoing system improvements.
-   
-5. **AI/ML Detection:**  
-   The server processes log data using an Isolation Forest algorithm, which identifies outliers indicative of potential security breaches.
-   
-6. **Dashboard Visualization:**  
-   A web-based dashboard provides:
-   - Live traffic summaries.
-   - Detailed anomaly reports.
-   - Options to update or modify security policies in real-time.
-   
-7. **Alerting System:**  
-   Upon detecting anomalous activity:
-   - Instant alerts are displayed on the dashboard.
-   - Logs are automatically archived.
-   - The system can initiate automatic blocking of further communications from the suspicious application if necessary.
-
----
-
-## 📂 File Structure
-
-The project is organized as follows:
-
-wireNet/ ├── agent/ │ └── agent_firewall.py # Firewall agent script for endpoint monitoring ├── server/ │ ├── app.py # Flask backend for REST API and policy enforcement │ ├── models.py # AI model logic for anomaly detection │ └── database.db # Database for log and policy persistence (SQLite) ├── dashboard/ │ └── templates/ # HTML, CSS, and JavaScript files for the dashboard interface ├── datasets/ │ └── labeled_logs.csv # Sample dataset for training and validating ML models ├── README.md # This project documentation file └── requirements.txt # Python dependency list for the project
-
-yaml
-Copy
-
----
-
-## 💻 Getting Started
-
-To set up WireNet on your system, follow these instructions:
-
-### ⚙️ Step 1: Install Requirements
-
-Ensure you have Python installed. Then, from the project’s root directory, install the necessary Python libraries:
-
-```bash
-pip install flask pandas scikit-learn plotly dash
-🧪 Step 2: Start the Flask Server
-Navigate into the server directory and run the Flask application:
-
-bash
-Copy
-cd server
-python app.py
-This server acts as the central hub, managing policy enforcement, data processing, and interfacing with the ML components.
-
-🖥 Step 3: Deploy the Firewall Agent
-In a separate terminal, navigate to the agent directory and run the firewall agent script:
-
-bash
-Copy
-cd agent
-python agent_firewall.py
-The agent begins collecting network data from the endpoint and communicates with the server in real time.
-
-🌐 Step 4: Access the Dashboard
-Open your web browser and navigate to:
-
-arduino
-Copy
-http://localhost:5000/
-The dashboard provides a centralized view of live traffic data, anomaly alerts, and system logs, making it easy to manage and fine-tune your cybersecurity policies.
-
-🧠 Future Scope
-WireNet is built with future advancements in mind. Planned enhancements include:
-
-🔁 Integration with Real-Time ADB Logs: Expand monitoring to include logs from connected Android devices.
-
-☁️ Cloud-Based Dashboard Hosting: Deploy the server and dashboard on cloud platforms like AWS or Heroku for improved scalability.
-
-🔐 Enhanced Authentication: Implement robust user authentication for dashboard access to further secure control panels.
-
-📩 Email & SMS Alerts: Integrate additional communication channels for alerting the cybersecurity team.
-
-🧠 Advanced Self-Learning Models: Incorporate deep learning algorithms (e.g., autoencoders) for even more precise anomaly detection.
-
-These additions will further solidify WireNet as a cutting-edge cybersecurity solution tailored for both current and emerging challenges.
-
-👨‍💻 Authors
-WireNet is the result of a collaborative effort by some of the brightest minds in cybersecurity, brought together under:
-
-Team Quantum Hackers – Driving innovation in network security.
-
-Code Crafter2.0 – Pioneering efficient and adaptive coding solutions.
-
-The core contributors include:
-
-Devashish Sharma – B.Tech CSE (8th Sem)
-
-Aman Kumar – B.Tech CSE (4th Sem)
-
-Abhishek – B.Tech CSE (4th Sem)
-
-Gaurav Sehgal – B.Tech CSE (4th Sem)
-
-❤️ Special Thanks
-Our sincere gratitude goes to Sant Baba Bhag Singh University and our dedicated mentors, whose guidance has been instrumental throughout the development of WireNet.
-
-📬 Contact
-For additional information, project inquiries, or collaboration opportunities, please reach out:
-
-Email: devashishsharma5000@gmail.com
-
-Location: India
-
-WireNet reimagines firewall technology by embedding AI-driven anomaly detection and context-aware control into everyday network security practices. With its emphasis on application-specific monitoring, centralized policy management, and comprehensive visualization, WireNet not only boosts cybersecurity readiness but also significantly reduces the administrative overhead associated with traditional firewall solutions. We invite you to explore, contribute, and help evolve WireNet into the definitive solution for modern network protection.
-
-Happy securing, and welcome to the future of intelligent cybersecurity!
-
-pgsql
-Copy
-
-You can copy this README into your repository’s `README.md` file and adjust any configuration details as needed. Enjoy and happy coding!
-
-
-
-
-
-You said:
-also add the hardware requirements as we are using wifi deauthor bluetooth jammer esp32 marouder
-ChatGPT said:
-Reasoned for 11 seconds
-Below is the updated comprehensive README in Markdown for WireNet. It incorporates all previously outlined sections along with a new "Hardware Requirements" section detailing the hardware components involved in the project. You can copy this content into your repository’s README.md file.
-
-markdown
-Copy
-# WireNet: Centralized Application-Context Aware Firewall (AI-Powered)
-A Smart Cybersecurity Solution by Team Quantum Hackers – Code Crafter2.0
-
 This repository presents an innovative solution for modern cybersecurity challenges—a Centralized Application-Context Aware Firewall that leverages AI/ML-based anomaly detection, context-aware network monitoring, and centralized policy enforcement via a unified dashboard. WireNet redefines how organizations defend against sophisticated cyber threats by offering application-specific insights and granular control.
 
 ---
@@ -410,7 +192,7 @@ Research and implement deep learning techniques (e.g., autoencoders) for more pr
 
 These future enhancements aim to further fortify WireNet as a cutting-edge, adaptive cybersecurity solution.
 
-👨‍💻 Authors
+## 👨‍💻 Authors
 WireNet is a collaborative effort by a group of passionate cybersecurity innovators brought together under:
 
 Team Quantum Hackers – Driving innovation in network security.
@@ -419,20 +201,18 @@ Code Crafter2.0 – Pioneering efficient and adaptive coding solutions.
 
 The core contributors include:
 
-Devashish Sharma – B.Tech CSE (8th Sem)
+Devashish Sharma 
 
-Aman Kumar – B.Tech CSE (4th Sem)
+Subhampreet Singh
 
-Abhishek – B.Tech CSE (4th Sem)
+Priyanka Janjua
 
-Gaurav Sehgal – B.Tech CSE (4th Sem)
+Pratiksha Thakur
 
-❤️ Special Thanks
-Our sincere gratitude goes to Sant Baba Bhag Singh University and our dedicated mentors, whose guidance has been instrumental in the development of WireNet.
 
 📬 Contact
 For further information, inquiries, or collaboration opportunities, please reach out:
 
-Email: devashishsharma5000@gmail.com
+## Email: devashishsharma5000@gmail.com
 
 Location: India
