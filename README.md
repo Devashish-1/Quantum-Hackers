@@ -1,5 +1,5 @@
-# Centralized Application-Context Aware Firewall (AI-Powered)
-*A Smart Cybersecurity Solution by Team KERNEL PANIC – WireNet | Next Quantum 2.0*
+# Wirenet (Advanced Integrated real time log analyzer)
+Connecting logs, Securing Future...
 
 ---
 
