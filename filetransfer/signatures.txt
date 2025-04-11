@@ -1,0 +1,11 @@
+chmod 777
+eval(
+exec(
+base64_decode
+password=
+Runtime.getRuntime().exec
+su -c
+nc -e
+curl http
+wget http
+rm -rf /

